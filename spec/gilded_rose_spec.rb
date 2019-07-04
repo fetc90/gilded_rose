@@ -34,11 +34,50 @@ describe GildedRose do
 
   end
 
+  describe "Aged Brie" do 
+    let(:item) { [Item.new("Aged Brie", 2, 0)] }
 
+      it 'increases in quality the older it gets' do 
+        expect { subject.update_quality() }.to change { item[0].quality() }.by(1)
+    end 
+  end 
 
+  describe "Sulfuras, Hand of Ragnaros" do 
+    let(:item) { [Item.new("Sulfuras, Hand of Ragnaros", 1, 80)] }
 
+      it 'sell in number does not change' do 
+        expect { subject.update_quality() }.to_not change { item[0].sell_in() }
+      end  
 
+      it 'does not change in quality' do 
+        expect { subject.update_quality() }.to_not change { item[0].quality() }
+      end 
+  end 
+
+  describe "Backstage Passes" do 
+    let(:item) { [Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20)] }
+
+      it 'increases in quality as sell in value decreases' do 
+        expect { subject.update_quality() }.to change { item[0].quality() }.by(1)
+      end  
+
+      it 'quality increases by 2 when sell_in <= 10' do 
+        5.times { subject.update_quality() }
+        expect { subject.update_quality() }.to change { item[0].quality() }.by(2)
+      end 
+
+      it 'quality increases by 3 when sell_in <= 5' do 
+        10.times { subject.update_quality() }
+        expect { subject.update_quality() }.to change { item[0].quality() }.by(3)
+      end 
+
+      it 'quality is 0 when sell_in is -1' do 
+        15.times { subject.update_quality() }
+      expect { subject.update_quality() }.to change { item[0].quality() }.to(0)
+     end 
+  end 
 end
+
 
 describe Item do  
   it 'has name, sell by date and quality by default' do 
@@ -46,8 +85,8 @@ describe Item do
   end  
 
   it 'returns the item as a string' do 
-      item = Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=0, quality=80)
-      expect(item.to_s()).to eq("Sulfuras, Hand of Ragnaros, 0, 80")
+    item = Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=0, quality=80)
+    expect(item.to_s()).to eq("Sulfuras, Hand of Ragnaros, 0, 80")
   end 
 end 
 

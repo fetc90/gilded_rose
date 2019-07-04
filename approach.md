@@ -160,7 +160,24 @@ What Have I Done?
 	- All items have a Quality value which denotes how valuable the item is
 	- At the end of each day our system lowers both values for every item
 * All tests currently passing
+* Committed tests
 
 25 mins || Plan
 * Continue writing tests, adding specific elements for aged brie etc.
+
+What have I done?
+* Implemented all these tests: 
+	- XX Once the sell by date has passed, Quality degrades twice as fast
+	- XX The Quality of an item is never negative
+	- XX "Aged Brie" actually increases in Quality the older it gets
+	- XX The Quality of an item is never more than 50
+	- XX "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+
+25 mins || Plan
+* Finish writing tests - will get done in next 25 mins. Probably in 10 minutes.
+* Write test for congured item which subsequently needs to be fixed in code - come back to this later. Test will take a few minutes to write.
+* Start modelling - need to think about what kind of model. Class model of how everything will work? Google ideas for solution incase there's something better. Don't change any code in class in this time.
+
+What have I done?
+
 
