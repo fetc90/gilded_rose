@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/fetc90/gilded-rose/badge.svg?branch=master)](https://coveralls.io/github/fetc90/gilded-rose/?branch=master)
+
+
 # The Task
 
 Refactor given legacy code. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design.
