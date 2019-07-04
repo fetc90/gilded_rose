@@ -179,5 +179,65 @@ What have I done?
 * Start modelling - need to think about what kind of model. Class model of how everything will work? Google ideas for solution incase there's something better. Don't change any code in class in this time.
 
 What have I done?
+* Finished tests and committed: 
+	- XX "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+	XXQuality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+	XXQuality drops to 0 after the concert
+  * Refactored code to remove comments for test scaffolding
+  * Looked at diagramming but not sure which one is best as all methods are in the same class 
 
+25 mins || Plan
+* Using the skills workshop we had today https://github.com/makersacademy/skills-workshops/tree/master/week-10-apprs/writing-algorithms I'm going to create a table of desired input and output.
+* Write a function signature for the code.
+* Write down each step in plain english that can be written in one line of code
+* Translate sentences into code.
+* Remember to come back to conjured items.
+
+What Have I Done?
+
+- The input is an instance of a class with values. 
+- The output is a string array
+- Using IRB to get output. 
+
+![alt text](images/input_output_table.png)
+
+After looking at table, the output is 
+
+25 mins || Plan
+- Add method to table
+- Start modelling flow chart
+
+What Have I Done?
+
+![alt text](images/table_2.png)
+![alt text](images/flowchart.png)
+
+25 mins || Plan
+
+- Play around with the code for 10 minutes 
+- Look at table to see patterns of objects
+
+What I've done:
+
+sell_in -1 = dexterity vest, aged brie, backstagepass
+sell_in -2 = conjured
+sell_in 0 = sulfuras
+
+quality -1 = dexterity vest, conjured
+quality 0 = sulfuras (no change)
+quality +1 = aged brie
+quality +2 = backstage_pass if sell_in <= 10 
+quality +3 = backstage_pass if sell_in <= 5
+* backstage_pass == 0 if sell_in < 1
+
+Plan for code refactor:
+counter for sell_in 
+counter for quality
+
+From my error message I can see where there will be an error in the code to resolve new item:
+```
+Failure/Error: expect { subject.update_quality() }.to change { item[0].quality() }.by(-2)
+       expected `item[0].quality()` to have changed by -2, but was changed by -1
+
+```
 

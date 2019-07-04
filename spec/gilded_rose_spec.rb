@@ -9,7 +9,7 @@ describe GildedRose do
       expect { subject.update_quality() }.to_not change { item[0].name }
     end
 
-    it 'decreases sell in day by 1' do 
+    it 'decreases sell_in day by 1' do 
       expect { subject.update_quality() }.to change { item[0].sell_in() }.by(-1)
     end 
 
@@ -17,17 +17,17 @@ describe GildedRose do
       expect { subject.update_quality() }.to change { item[0].quality() }.by(-1)
     end 
 
-    it 'decreases quality by 2 after sell in day is 0' do 
+    it 'decreases quality by 2 after sell_in day is 0' do 
       10.times { subject.update_quality() }
       expect { subject.update_quality() }.to change { item[0].quality() }.by(-2)
     end 
 
-    it 'the quality is never negative when sellin in 0' do 
+    it 'the quality is never negative when sell_in in 0' do 
       30.times { subject.update_quality() }
       expect { subject.update_quality() }.to_not change { item[0].quality() }
     end 
 
-    it 'the quality is never more than 50' do 
+    it 'the quality is more than 50' do 
       50.times { subject.update_quality() }
       expect { subject.update_quality() }.to_not change { item[0].quality() }
     end 
@@ -76,8 +76,16 @@ describe GildedRose do
       expect { subject.update_quality() }.to change { item[0].quality() }.to(0)
      end 
   end 
-end
 
+  describe "Conjured Mana Cake" do 
+    let(:item) { [Item.new("Conjured Mana Cake", 3, 6)] }
+    # "Conjured" items degrade in Quality twice as fast as normal items
+    it 'the quality decreases by 2' do 
+      expect { subject.update_quality() }.to change { item[0].quality() }.by(-2)
+    end 
+
+  end 
+end
 
 describe Item do  
   it 'has name, sell by date and quality by default' do 
@@ -89,4 +97,3 @@ describe Item do
     expect(item.to_s()).to eq("Sulfuras, Hand of Ragnaros, 0, 80")
   end 
 end 
-
