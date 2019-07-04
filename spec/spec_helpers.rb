@@ -15,5 +15,5 @@ end
 
 def create_gildedRose_with_items
     create_item_list
-    gilded_rose = GildedRose.new(items)
+    GildedRose.new(items)
 end 

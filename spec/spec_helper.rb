@@ -1,6 +1,4 @@
-require './lib/item.rb'
 require './lib/gilded_rose.rb'
-
 require 'simplecov'
 require 'simplecov-console'
 
