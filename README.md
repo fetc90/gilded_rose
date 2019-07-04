@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/fetc90/gilded-rose/badge.svg?branch=master)](https://coveralls.io/github/fetc90/gilded-rose/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/fetc90/gilded_rose/badge.svg?branch=master)](https://coveralls.io/github/fetc90/gilded_rose/?branch=master)
 
 
 # The Task
